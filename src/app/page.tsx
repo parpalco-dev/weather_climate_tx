@@ -2,7 +2,7 @@
 
 import styles from "./page.module.css";
 import { Fetch_frio_county,Fetch_harris_county, Fetch_webb_county, Fetch_balmorhea_county,Fetch_orla_county,Fetch_kermit_county, Fetch_ozona_county, Fetch_midland_county, Fetch_carlsbad_county, WeatherApiResponse } from "./fetch";
-import { Drop,WindIcon,Clear,M_Clear,Sunny,M_Sunny,P_Cloudy,Rain } from "./icons";
+import { Drop,WindIcon,Clear,M_Clear,Sunny,M_Sunny,P_Cloudy,Rain,Am_showers,Sct_T_Storms,Iso_T_Storms,Shwrs_Late } from "./icons";
 import DuplicateItems from "./duplicateArray";
 
 
@@ -39,7 +39,7 @@ function MapCounty({county_name,countyCode,imported_data}:{county_name:string, c
                     <div className={styles.day_part_container}>
                       <div className={styles.day_part}>
                         DAY
-                        <div className={styles.weather_icon}>{phrase_short[index]=='Sunny'?<Sunny />:(phrase_short[index]=='P Cloudy'?<P_Cloudy />:(phrase_short[index]=='M Sunny'?<M_Sunny/>:(phrase_short[index]=='M Cloudy'?'☁️':(phrase_short[index]=='Thunderstorms'?'🌦️':(phrase_short[index]=='Showers'?'⛈️':<Rain />)))))}</div>
+                        <div className={styles.weather_icon}>{phrase_short[index]=='Sunny'?<Sunny />:(phrase_short[index]=='P Cloudy'?<P_Cloudy />:(phrase_short[index]=='M Sunny'?<M_Sunny/>:(phrase_short[index]=='M Cloudy'?'☁️':(phrase_short[index]=='Thunderstorms'?'🌦️':(phrase_short[index]=='Showers'?'⛈️':(phrase_short[index]=='AM Showers'?<Am_showers/>:(phrase_short[index]=='Sct T-Storms'?<Sct_T_Storms/>:(phrase_short[index]=='Iso T-Storms'?<Iso_T_Storms/>:<Rain />))))))))}</div>
                         <div className={styles.temperature}>
                           <div className={styles.day_temp}>{temp[index]}°</div>
                         </div>
@@ -50,7 +50,7 @@ function MapCounty({county_name,countyCode,imported_data}:{county_name:string, c
                       </div>
                       <div className={styles.night_part}>
                         NIGHT
-                        <div className={styles.weather_icon}>{phrase_short[index+1]=='P Cloudy'?<M_Clear />:(phrase_short[index+1]=='M Cloudy'?'☁️':(phrase_short[index+1]=='Thunderstorms'?'🌦️':(phrase_short[index+1]=='Showers'?'⛈️':(phrase_short[index+1]=='Clear'?<Clear />:(phrase_short[index+1]=='M Clear'?<M_Clear />:'Rains')))))}</div>
+                        <div className={styles.weather_icon}>{phrase_short[index+1]=='P Cloudy'?<M_Clear />:(phrase_short[index+1]=='M Cloudy'?'☁️':(phrase_short[index+1]=='Thunderstorms'?'🌦️':(phrase_short[index+1]=='Showers'?'⛈️':(phrase_short[index+1]=='Clear'?<Clear />:(phrase_short[index+1]=='M Clear'?<M_Clear />:(phrase_short[index+1]=='Shwrs Late'?<Shwrs_Late/>:'Rains'))))))}</div>
                         <div className={styles.temperature}>
                         <div className={styles.day_temp}>{temp[index+1]}°</div>
                         </div>
@@ -112,7 +112,7 @@ const imported_data_carlsbad = Fetch_carlsbad_county();
 
 return (
   <div className={styles.page}>
-    <h1 id="title" className={styles.titles}>9 Sept - 15 Sep, Weather report</h1>
+    <h1 id="title" className={styles.titles}>16 Sept - 22 Sep, Weather report</h1>
     <hr />
     <hr />
       <br/>
